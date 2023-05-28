@@ -6,3 +6,34 @@
 #     1 2 3 4 5 6
 #     -> 5
 
+import random
+
+# n = int(input('Введите длину массива: '))            # Закомиттил первые 4 строки для подставки массива и последующей проверки работы
+# numbers = []
+# for i in range(n):
+#     numbers.append(random.randint(1,n))
+numbers = [1, 7, 4, 7, 2, 1, 8, 9, 7]                 # ++++ ДЛЯ ПРИМЕРА И ПРОВЕРКИ ПОИСКА ПЕРВОГО БЛИЗКОГО ЧИСЛА к числу 3 ++++
+x = int(input('Введите число для поиска или близкого к нему значения в массиве: '))
+if x in numbers:
+    print(f'Сформированный случайный массив: {numbers}')
+    print(f'В массиве есть само число {x}')
+    
+else:
+    a = x-1
+    b = x+1
+    while a not in numbers:
+        a-=1
+    while b not in numbers:
+        b+=1
+    if (x-a)<(b-x):
+        res = a
+    elif (x-a)==(b-x):
+        if numbers.index(a)<numbers.index(b):
+            res = a
+        else: 
+            res = b
+    else:
+        res = b
+        
+    print(f'Сформированный случайный массив: {numbers}')
+    print(f'Самое первое близкое по значению число в массиве: {res}')
